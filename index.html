@@ -1,0 +1,723 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>ADRYA Milano</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: editorial atelier page, asymmetric hero with arched photo slot, service list as a price-less menu, hair-tone swatch gallery */
+:root{
+  --bg:#13151A; --bg2:#1A1D24; --fg:#EDE8DF; --muted:#A39E94; --line:#2C3038; --brass:#C2A468; --brass-ink:#13151A;
+  --f-display:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --f-body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --t1:#E9D9A8; --t2:#B98B5A; --t3:#6E4A36; --t4:#9C9A9E; --t5:#D9C4B0; --t6:#2B2321;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){
+  --bg:#F3EFE8; --bg2:#E9E3D9; --fg:#1B1D22; --muted:#625E56; --line:#D3CCBF; --brass:#8A6D2F; --brass-ink:#F3EFE8; color-scheme:light;}}
+:root[data-theme="light"]{--bg:#F3EFE8; --bg2:#E9E3D9; --fg:#1B1D22; --muted:#625E56; --line:#D3CCBF; --brass:#8A6D2F; --brass-ink:#F3EFE8; color-scheme:light;}
+:root[data-theme="dark"]{--bg:#13151A; --bg2:#1A1D24; --fg:#EDE8DF; --muted:#A39E94; --line:#2C3038; --brass:#C2A468; --brass-ink:#13151A; color-scheme:dark;}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.65;padding-inline:20px}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1160px;margin-inline:auto}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+h1,h2,h3{font-family:var(--f-display);font-weight:500;line-height:1.05;margin:0;text-wrap:balance}
+.eyebrow{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--brass);font-weight:600}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;padding:.95rem 1.7rem;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;border:1px solid var(--brass);border-radius:999px;transition:background .25s,color .25s,transform .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn.solid{background:var(--brass);color:var(--brass-ink)}
+.btn.solid:hover{background:transparent;color:var(--brass)}
+.btn.ghost{color:var(--fg);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--brass);color:var(--brass)}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);margin-inline:-20px;padding-inline:20px;border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:14px}
+.logo{font-family:var(--f-display);font-size:1.7rem;letter-spacing:.28em;font-weight:500}
+nav{display:flex;gap:2rem}
+nav a{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--muted);transition:color .2s}
+nav a:hover{color:var(--fg)}
+.bar .btn{padding:.7rem 1.2rem}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,6vw,90px);align-items:center;padding-block:clamp(40px,8vw,96px)}
+.hero h1{font-size:clamp(2.5rem,5.8vw,4.8rem);line-height:1.08;letter-spacing:-.005em;color:var(--fg);margin-top:1.1rem}
+.hero h1 em{color:var(--brass);font-style:italic;font-weight:500}
+.hero p.lead{max-width:34rem;font-size:1.08rem;color:var(--muted);margin:1.6rem 0 2.2rem}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem}
+.sig{margin-top:2.4rem;display:flex;align-items:center;gap:.9rem;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.sig::before{content:"";width:42px;height:1px;background:var(--brass)}
+.arch{position:relative;aspect-ratio:5/6;max-width:100%;border-radius:999px 999px 24px 24px;overflow:hidden;background:var(--bg2);border:1px solid var(--line)}
+.arch img{display:block;width:100%;height:100%;object-fit:cover;object-position:0% 50%;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.arch:hover img{transform:scale(1.05)}
+
+/* strip */
+.strip{display:grid;grid-template-columns:repeat(3,1fr);border-block:1px solid var(--line)}
+.strip div{padding:26px 18px;text-align:center}
+.strip div+div{border-left:1px solid var(--line)}
+.strip b{display:block;font-family:var(--f-display);font-size:1.5rem;font-weight:500}
+.strip span{font-size:.8rem;color:var(--muted)}
+
+section{padding-block:clamp(56px,9vw,112px)}
+.head{display:flex;flex-direction:column;gap:.9rem;margin-bottom:2.6rem;max-width:40rem}
+.head h2{font-size:clamp(2.2rem,5vw,3.6rem)}
+
+/* filosofia */
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,6vw,80px);align-items:start}
+.quote{font-family:var(--f-display);font-style:italic;font-size:clamp(1.6rem,3.2vw,2.3rem);line-height:1.25}
+.quote cite{display:block;margin-top:1.2rem;font-family:var(--f-body);font-style:normal;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brass)}
+.about p{color:var(--muted);margin:0 0 1.1rem;max-width:36rem}
+.about p:first-of-type{color:var(--fg);font-size:1.12rem}
+
+/* servizi */
+.menu{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr) auto;gap:1.2rem 2.5rem;align-items:baseline;padding-block:28px;border-bottom:1px solid var(--line)}
+.row h3{font-size:clamp(1.6rem,3vw,2.15rem)}
+.row p{margin:0;color:var(--muted);max-width:34rem}
+.row a{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);font-weight:700;white-space:nowrap}
+.row a:hover{text-decoration:underline;text-underline-offset:4px}
+
+/* servizi e prezzi */
+.head h2 em{color:var(--brass);font-style:italic;font-weight:500}
+.head .sub{margin:.4rem 0 0;color:var(--muted);font-size:1.05rem;max-width:34rem}
+.price-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,2.4vw,32px);align-items:stretch}
+.pcard{display:flex;flex-direction:column;background:var(--bg2);border:1px solid color-mix(in srgb,var(--brass) 32%,transparent);border-radius:22px;overflow:hidden;transition:transform .45s cubic-bezier(.2,.7,.2,1),border-color .35s,box-shadow .45s}
+.pcard:hover{transform:translateY(-6px);border-color:var(--brass);box-shadow:0 24px 44px -22px rgba(0,0,0,.65)}
+.pimg{aspect-ratio:16/8;overflow:hidden;border-bottom:1px solid color-mix(in srgb,var(--brass) 32%,transparent)}
+.pimg img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 22%;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.pcard:hover .pimg img{transform:scale(1.06)}
+.pbody{padding:clamp(24px,3.2vw,40px);flex:1}
+.pbody h3{font-size:clamp(1.7rem,3vw,2.2rem);margin-bottom:1.1rem;color:var(--fg)}
+.pbody ul{list-style:none;margin:0;padding:0}
+.pbody li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1rem;align-items:baseline;padding-block:15px;border-top:1px solid var(--line);transition:padding .3s}
+.pbody li:hover{padding-left:6px}
+.pbody .name{color:var(--fg);font-size:.98rem;line-height:1.4}
+.pbody .price{font-family:var(--f-display);font-size:clamp(1.7rem,2.6vw,2.2rem);font-weight:600;color:var(--brass);white-space:nowrap;line-height:1;transition:color .3s}
+.pbody li:hover .price{color:var(--t1)}
+.pbody .price small{font-family:var(--f-body);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--muted);margin-right:.2rem}
+.pnote{margin:2.2rem auto 0;max-width:40rem;text-align:center;color:var(--muted);font-size:.9rem}
+.pcta{margin-top:2.2rem;display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center}
+.pcta p{margin:0;font-family:var(--f-display);font-style:italic;font-size:1.35rem;color:var(--fg)}
+@media (max-width:860px){.price-grid{grid-template-columns:1fr}}
+
+
+
+/* modulo richiesta appuntamento */
+.bk{margin-top:clamp(20px,3vw,34px);background:var(--bg2);border:1px solid var(--line);border-radius:28px;padding:clamp(22px,4.5vw,56px)}
+.bk-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.4rem 1.5rem;margin-bottom:clamp(20px,3vw,32px)}
+.bk-head h3{font-size:clamp(1.8rem,3.4vw,2.5rem)}
+.bk-head span{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.bk-step{padding-top:clamp(18px,2.6vw,28px);margin-top:clamp(18px,2.6vw,28px);border-top:1px solid var(--line)}
+.bk-head + .bk-step{border-top:0;margin-top:0;padding-top:0}
+.bk-label{display:flex;align-items:center;gap:.8rem;margin:0 0 1rem;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);font-weight:700}
+.bk-label i{font-style:normal;display:grid;place-items:center;width:26px;height:26px;border:1px solid var(--brass);border-radius:50%;font-size:.72rem;letter-spacing:0}
+.chips{display:flex;flex-wrap:wrap;gap:.6rem}
+.chip{min-height:44px;padding:.65rem 1.15rem;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--fg);font:inherit;font-size:.92rem;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.chip:hover:not(:disabled){border-color:var(--brass)}
+.chip[aria-pressed="true"]{background:var(--brass);border-color:var(--brass);color:var(--brass-ink);font-weight:600}
+.chip:disabled{opacity:.32;cursor:not-allowed;text-decoration:line-through}
+.days,.slots{display:grid;gap:.6rem;grid-template-columns:repeat(auto-fill,minmax(88px,1fr))}
+.days .chip{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.1rem;border-radius:18px;padding:.6rem .4rem;line-height:1.2}
+.days .chip b{font-family:var(--f-display);font-size:1.5rem;font-weight:600;line-height:1}
+.days .chip small{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase}
+.slots .chip{border-radius:14px;padding:.6rem .4rem;text-align:center}
+.bk-note{margin:.9rem 0 0;font-size:.8rem;color:var(--muted)}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.fields label{display:flex;flex-direction:column;gap:.4rem;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.fields .full{grid-column:1/-1}
+.fields input,.fields textarea{width:100%;padding:.9rem 1.1rem;border:1px solid var(--line);border-radius:14px;background:var(--bg);color:var(--fg);font:inherit;font-size:16px;letter-spacing:0;text-transform:none;font-weight:400}
+.fields textarea{min-height:88px;resize:vertical}
+.fields input:focus,.fields textarea:focus{outline:2px solid var(--brass);outline-offset:1px;border-color:var(--brass)}
+.bk-sum{margin:0 0 1.2rem;padding:1.1rem 1.3rem;border:1px dashed color-mix(in srgb,var(--brass) 55%,transparent);border-radius:18px;color:var(--fg);font-size:.98rem}
+.bk-sum b{color:var(--brass);font-weight:600}
+.bk-err{margin:.8rem 0 0;color:#e08a7a;font-size:.88rem;min-height:1.2em}
+.bk-actions{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.4rem}
+.bk-actions .btn{cursor:pointer;font-family:var(--f-body)}
+.own select{width:100%;padding:.8rem 1rem;border:1px solid var(--line);border-radius:14px;background:var(--bg);color:var(--fg);font:inherit}
+.ogrid-w{overflow:auto;border:1px solid var(--line);border-radius:14px;max-height:70vh}
+.ogrid{border-collapse:separate;border-spacing:0;font-size:.78rem;min-width:100%}
+.ogrid th,.ogrid td{padding:.35rem .4rem;border-bottom:1px solid var(--line);border-right:1px solid var(--line);text-align:center;min-width:84px;white-space:nowrap}
+.ogrid th{position:sticky;top:0;background:var(--bg2);z-index:2;font-weight:600;text-transform:capitalize}
+.ogrid th:first-child,.ogrid td:first-child{position:sticky;left:0;background:var(--bg2);z-index:1;min-width:52px;color:var(--muted)}
+.ogrid th:first-child{z-index:3}
+.ogrid td.f{cursor:pointer;color:var(--muted)}
+.ogrid td.f:hover{background:color-mix(in srgb,var(--brass) 18%,transparent)}
+.ogrid td.b{background:var(--brass);color:var(--brass-ink);font-weight:600;cursor:pointer;overflow:hidden;text-overflow:ellipsis;max-width:110px}
+.ogrid td.b.t{background:color-mix(in srgb,var(--brass) 55%,var(--bg))}
+.ogrid td.sel{outline:2px solid var(--fg);outline-offset:-2px}
+.ogdet{margin:.8rem 0 0;display:flex;flex-wrap:wrap;gap:.6rem 1rem;align-items:center;min-height:2rem;font-size:.9rem}
+.own-list{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
+.own-list li{display:flex;gap:1rem;align-items:center;justify-content:space-between;padding:.7rem 1rem;border:1px solid var(--line);border-radius:14px;font-size:.92rem}
+.own-list li small{color:var(--muted);display:block}
+.own-list button{font:inherit;font-size:.78rem;color:var(--brass);background:none;border:1px solid var(--line);border-radius:999px;padding:.35rem .8rem;cursor:pointer}
+.bk-done{text-align:center;padding:clamp(10px,3vw,30px) 0}
+.bk-done h3{font-size:clamp(1.8rem,3.6vw,2.6rem);margin:.6rem 0 .8rem}
+.bk-done p{margin:0 auto 1.4rem;max-width:34rem;color:var(--muted)}
+.bk-done pre{white-space:pre-wrap;text-align:left;margin:0 auto 1.4rem;max-width:34rem;padding:1.1rem 1.3rem;border:1px solid var(--line);border-radius:18px;background:var(--bg);color:var(--fg);font:inherit;font-size:.92rem;line-height:1.6}
+@media (max-width:560px){.fields{grid-template-columns:1fr}.days,.slots{grid-template-columns:repeat(auto-fill,minmax(76px,1fr))}}
+
+/* metodo */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.step{background:var(--bg2);padding:30px 26px;border:1px solid var(--line);border-radius:22px;transition:transform .35s,border-color .3s}
+.step:hover{transform:translateY(-6px);border-color:var(--brass)}
+.step h3{font-size:1.7rem;margin-bottom:.7rem}
+.step p{margin:0;color:var(--muted);font-size:.95rem}
+.step .n{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);font-weight:700;display:block;margin-bottom:1rem}
+
+/* lavori */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.shot{position:relative;aspect-ratio:3/4;overflow:hidden;border:1px solid var(--line);border-radius:22px;display:flex;align-items:flex-end;transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s,border-color .3s}
+.shot:hover{transform:translateY(-8px);border-color:var(--brass);box-shadow:0 22px 40px -18px rgba(0,0,0,.6)}
+.shot img{transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.shot:hover img{transform:scale(1.08)}
+.shot span{transition:transform .45s,color .3s}
+.shot:hover span{transform:translateY(-4px);color:var(--t1)}
+.shot::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,10,12,.7))}
+.shot span{position:relative;z-index:1;padding:14px;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:#EDE8DF;font-weight:600}
+.shot{background:var(--bg2)}
+.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.more{margin-top:2rem;display:flex;flex-wrap:wrap;gap:1rem 1.6rem;align-items:center;color:var(--muted);font-size:.95rem}
+
+/* prenota */
+.book{background:var(--bg2);border:1px solid var(--line);border-radius:28px;padding:clamp(34px,6vw,76px);display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(26px,5vw,70px);align-items:center}
+.book h2{font-size:clamp(2.2rem,5vw,3.6rem);margin:.9rem 0 1rem}
+.book p{margin:0;color:var(--muted);max-width:32rem}
+.book .cta{flex-direction:column}
+.book .cta .btn{width:100%}
+dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.7rem 1.4rem;font-size:.95rem}
+dt{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);font-weight:700;padding-top:.25rem}
+dd{margin:0;color:var(--muted)}
+
+footer{border-top:1px solid var(--line);padding-block:30px 96px;display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:space-between;font-size:.8rem;color:var(--muted)}
+footer .logo{font-size:1.3rem;color:var(--fg)}
+
+.wa{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;width:54px;height:54px;border-radius:50%;background:var(--brass);color:var(--brass-ink);display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.wa svg{width:26px;height:26px}
+
+@media (max-width:860px){
+  nav{display:none}
+  .hero,.about,.book{grid-template-columns:1fr}
+  .arch{order:0;max-width:380px;margin-inline:auto;width:100%}
+  .row{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:480px){
+  .strip{grid-template-columns:1fr}
+  .strip div+div{border-left:0;border-top:1px solid var(--line)}
+  .logo{font-size:1.4rem}
+  .cta .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}.shot:hover,.shot:hover img,.shot:hover span,.arch:hover img,.step:hover,.btn:hover{transform:none}}
+</style>
+
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top" aria-label="ADRYA Milano">ADRYA</a>
+    <nav aria-label="Principale">
+      <a href="#atelier">Atelier</a><a href="#servizi">Servizi</a><a href="#lavori">Lavori</a><a href="#contatti">Contatti</a>
+    </nav>
+    <a class="btn solid" href="#richiedi">Booking</a>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+  <div class="hero">
+    <div>
+      <div class="eyebrow">Hair atelier · Milano</div>
+      <h1>La tua bellezza,<br><em>la nostra arte.</em></h1>
+      <p class="lead">Ogni donna è unica. Ogni capello racconta una storia. Da ADRYA creiamo tagli, colori e styling su misura per esaltare la tua personalità e farti sentire straordinaria, ogni giorno.</p>
+      <div class="cta">
+        <a class="btn solid" href="#richiedi">Prenota la tua consulenza</a>
+        <a class="btn ghost" href="#" data-wa>Scrivici su WhatsApp</a>
+      </div>
+      <div class="sig">Adriano Vassallo, fondatore</div>
+    </div>
+    <div class="arch"><img src="hero.jpg" width="1200" height="1097" alt="Adriano Vassallo applica la decolorazione su una cliente nell'atelier ADRYA"></div>
+  </div>
+
+  <div class="strip">
+    <div><b>Su appuntamento</b><span>Tempo dedicato solo a te</span></div>
+    <div><b>Consulenza inclusa</b><span>Prima di ogni servizio</span></div>
+    <div><b>Nel cuore di Milano</b><span>Via Achille Mauri 4</span></div>
+  </div>
+
+  <section id="atelier">
+    <div class="about">
+      <div class="quote">“Valorizzare, non trasformare: è da qui che comincia ogni lavoro firmato ADRYA.”<cite>Adriano Vassallo</cite></div>
+      <div>
+        <p>ADRYA è un atelier dei capelli dove il risultato nasce dall'ascolto. Prima di prendere le forbici guardiamo il viso, la texture, la crescita e le abitudini di ogni cliente.</p>
+        <p>Il nostro lavoro è far emergere ciò che c'è già, con tagli che cadono bene anche a due settimane dalla piega e colori che crescono con eleganza. Non seguiamo la moda del momento: costruiamo uno stile che ti somiglia.</p>
+        <p>Per questo riceviamo solo su appuntamento. Ogni seduta ha il tempo che serve.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="servizi" style="padding-top:0">
+    <div class="head"><div class="eyebrow">Servizi e prezzi</div><h2>La tua bellezza merita un trattamento <em>su misura.</em></h2><p class="sub">Ogni capello è unico. Scopri i nostri servizi esclusivi, studiati per valorizzare il tuo stile e la tua personalità.</p></div>
+    <div class="price-grid">
+      <article class="pcard">
+        <div class="pimg"><img src="prezzo-biondi.jpg" loading="lazy" alt="Lunghe onde biondo balayage, di profilo e di spalle" style="object-position:50% 30%"></div>
+        <div class="pbody">
+          <h3>Schiariture &amp; Biondi</h3>
+          <ul>
+            <li><span class="name">Shatush, schiariture a mano libera</span><span class="price"><small>da</small> 180 €</span></li>
+            <li><span class="name">Tonalizzazione personalizzata</span><span class="price"><small>da</small> 50 €</span></li>
+          </ul>
+        </div>
+      </article>
+      <article class="pcard">
+        <div class="pimg"><img src="prezzo-colore.jpg" loading="lazy" alt="Bob scalato nero con sfumatura bordeaux" style="object-position:50% 22%"></div>
+        <div class="pbody">
+          <h3>Colore</h3>
+          <ul>
+            <li><span class="name">Colore di base</span><span class="price"><small>da</small> 70 €</span></li>
+            <li><span class="name">Colorazione con henné</span><span class="price"><small>da</small> 70 €</span></li>
+            <li><span class="name">Henné con pigmento</span><span class="price"><small>da</small> 90 €</span></li>
+            <li><span class="name">Henné toner</span><span class="price"><small>da</small> 60 €</span></li>
+          </ul>
+        </div>
+      </article>
+      <article class="pcard">
+        <div class="pimg"><img src="prezzo-taglio.jpg" loading="lazy" alt="Taglio medio mosso biondo dorato, sorridente nel salone" style="object-position:50% 24%"></div>
+        <div class="pbody">
+          <h3>Taglio &amp; Styling</h3>
+          <ul>
+            <li><span class="name">Taglio donna</span><span class="price">70 €</span></li>
+            <li><span class="name">Taglio uomo</span><span class="price">50 €</span></li>
+            <li><span class="name">Piega</span><span class="price"><small>da</small> 50 €</span></li>
+          </ul>
+        </div>
+      </article>
+      <article class="pcard">
+        <div class="pimg"><img src="prezzo-trattamenti.jpg" loading="lazy" alt="Adriano Vassallo solleva una chioma biondo luminosa e piena di volume" style="object-position:50% 34%"></div>
+        <div class="pbody">
+          <h3>Trattamenti</h3>
+          <ul>
+            <li><span class="name">Trattamenti naturali e ricostruttivi</span><span class="price"><small>da</small> 25 €</span></li>
+          </ul>
+        </div>
+      </article>
+    </div>
+    <p class="pnote">I prezzi indicati come “da” vengono confermati dopo una consulenza tecnica, in base a lunghezza, quantità e stato dei capelli.</p>
+    <div class="pcta">
+      <a class="btn solid" href="#richiedi">Prenota il tuo momento ADRYA →</a>
+      <p>Il tuo nuovo look inizia da una consulenza personalizzata.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="head"><div class="eyebrow">Come lavoriamo</div><h2>Tre passaggi, nessuna sorpresa.</h2></div>
+    <div class="steps">
+      <div class="step"><span class="n">Prima</span><h3>Consulenza</h3><p>Parliamo di cosa ti piace, cosa non ti piace e come gestisci i capelli ogni giorno. Dopo, ti diciamo cosa è fattibile.</p></div>
+      <div class="step"><span class="n">Durante</span><h3>Il servizio</h3><p>Lavoriamo con calma e ti spieghiamo ogni scelta. Vedi il risultato crescere sotto i tuoi occhi.</p></div>
+      <div class="step"><span class="n">Dopo</span><h3>Mantenimento</h3><p>Ti lasciamo i consigli giusti e i prodotti adatti. Quando tornare lo decidiamo insieme, in base ai tuoi capelli.</p></div>
+    </div>
+  </section>
+
+  <section id="lavori" style="padding-top:0">
+    <div class="head"><div class="eyebrow">Lavori</div><h2>Capelli che parlano da soli.</h2></div>
+    <div class="gallery">
+      <div class="shot"><img src="lavoro1.jpg" loading="lazy" alt="Capelli lunghi biondo luminoso con onde morbide"><span>Biondo luminoso</span></div>
+      <div class="shot"><img src="lavoro2.jpg" loading="lazy" alt="Capelli lunghi castano ramato con riflessi caldi"><span>Castano ramato</span></div>
+      <div class="shot"><img src="lavoro3.jpg" loading="lazy" alt="Taglio medio scalato in grigio perla"><span>Grigio perla</span></div>
+      <div class="shot"><img src="lavoro4.jpg" loading="lazy" alt="Bob scomposto riccio castano con frangia"><span>Bob scomposto</span></div>
+    </div>
+    <div class="more"><span>Altri lavori ogni settimana su Instagram.</span><a class="btn ghost" href="https://www.instagram.com/adryamilano/" target="_blank" rel="noopener">@adryamilano</a></div>
+  </section>
+
+  <section id="prenota" style="padding-top:0">
+    <div class="book">
+      <div>
+        <div class="eyebrow">Prenota</div>
+        <h2>Il tuo prossimo look comincia con una consulenza.</h2>
+        <p>Scegli servizio, giorno e orario qui sotto: ti confermiamo l'appuntamento su WhatsApp in giornata.</p>
+      </div>
+      <div class="cta">
+        <a class="btn solid" href="#richiedi">Prenota online</a>
+        <a class="btn ghost" href="#" data-wa>Scrivici su WhatsApp</a>
+      </div>
+    </div>
+    <div class="bk" id="richiedi">
+      <div id="bk-flow">
+        <div class="bk-head"><h3>Richiedi il tuo appuntamento</h3><span>Mar – Sab · 10:00 – 19:00</span></div>
+
+        <div class="bk-step">
+          <p class="bk-label"><i>1</i>Scegli il servizio</p>
+          <div class="chips" id="bk-services" role="group" aria-label="Servizio"></div>
+        </div>
+
+        <div class="bk-step" id="bk-s2" hidden>
+          <p class="bk-label"><i>2</i>Scegli il giorno</p>
+          <div class="days" id="bk-days" role="group" aria-label="Giorno"></div>
+        </div>
+
+        <div class="bk-step" id="bk-s3" hidden>
+          <p class="bk-label"><i>3</i>Scegli l'orario</p>
+          <div class="slots" id="bk-slots" role="group" aria-label="Orario"></div>
+          <p class="bk-note">Gli orari barrati non sono disponibili.</p>
+        </div>
+
+        <form class="bk-step" id="bk-s4" hidden novalidate>
+          <p class="bk-label"><i>4</i>I tuoi dati</p>
+          <div class="fields">
+            <label>Nome e cognome<input type="text" id="bk-name" autocomplete="name" required></label>
+            <label>Telefono<input type="tel" id="bk-tel" autocomplete="tel" inputmode="tel" required></label>
+            <label class="full">Note (facoltativo)<textarea id="bk-note" placeholder="Es. lunghezza, colore attuale, cosa vorresti ottenere"></textarea></label>
+          </div>
+          <p class="bk-err" id="bk-err" role="alert"></p>
+          <p class="bk-sum" id="bk-sum"></p>
+          <div class="bk-actions">
+            <button class="btn solid" type="submit">Invia la richiesta su WhatsApp</button>
+            <span class="bk-note" style="margin:0">Ti rispondiamo in giornata per confermare.</span>
+          </div>
+        </form>
+      </div>
+
+      <div class="bk-done" id="bk-done" hidden>
+        <div class="eyebrow">Richiesta pronta</div>
+        <h3>Grazie, <span id="bk-thanks"></span>.</h3>
+        <p id="bk-done-text">Ti confermiamo l'appuntamento su WhatsApp appena possibile.</p>
+        <pre id="bk-msg"></pre>
+        <div class="cta" style="justify-content:center">
+          <a class="btn solid" id="bk-wa" href="#" target="_blank" rel="noopener" hidden>Apri WhatsApp</a>
+          <button class="btn ghost" type="button" id="bk-again">Nuova richiesta</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contatti" style="padding-top:0">
+    <div class="head"><div class="eyebrow">Contatti</div><h2>Vieni a trovarci.</h2></div>
+    <dl>
+      <dt>Indirizzo</dt><dd>Via Achille Mauri 4, 20123 Milano (MI)</dd>
+      <dt>Orari</dt><dd>Martedì – sabato, 10:00 – 19:00<br>Lunedì chiuso</dd>
+      <dt>Telefono</dt><dd><a href="tel:+390261298150">02 6129 8150</a></dd>
+      <dt>Instagram</dt><dd><a href="https://www.instagram.com/adryamilano/" target="_blank" rel="noopener">@adryamilano</a></dd>
+    </dl>
+  </section>
+
+  <section id="salone" class="own" hidden>
+    <div class="head"><div class="eyebrow">Area salone</div><h2>Agenda del salone.</h2></div>
+    <div class="bk" id="own-lock">
+      <form id="own-pin-form" class="fields" novalidate>
+        <label>PIN<input type="password" id="own-pin" inputmode="numeric" autocomplete="off"></label>
+        <div class="bk-actions" style="align-self:end"><button class="btn solid" type="submit">Entra</button></div>
+      </form>
+      <p class="bk-err" id="own-pin-err" role="alert"></p>
+    </div>
+    <div class="bk" id="own-panel" hidden>
+      <p class="bk-note" id="own-status" style="margin-top:0"></p>
+      <div class="bk-step" style="border:0;padding-top:0;margin-top:0">
+        <p class="bk-label"><i>▦</i>Calendario (prossimi 14 giorni lavorativi)</p>
+        <div class="ogrid-w"><table class="ogrid" id="own-grid"></table></div>
+        <div class="ogdet" id="own-det">Tocca una cella libera per prenotarla, una occupata per vedere i dettagli. <b>Pieno</b> = sito, <b>chiaro</b> = telefono.</div>
+      </div>
+      <form id="own-add" class="bk-step" novalidate style="border:0;padding-top:0;margin-top:0">
+        <p class="bk-label"><i>+</i>Aggiungi una prenotazione presa per telefono o WhatsApp</p>
+        <div class="fields">
+          <label>Giorno<select id="own-day"></select></label>
+          <label>Orario<select id="own-time"></select></label>
+          <label>Nome<input type="text" id="own-name" autocomplete="off"></label>
+          <label>Servizio<select id="own-service"></select></label>
+        </div>
+        <p class="bk-err" id="own-err" role="alert"></p>
+        <div class="bk-actions"><button class="btn solid" type="submit">Segna come occupato</button></div>
+      </form>
+      <div class="bk-step">
+        <p class="bk-label"><i>≡</i>Prenotazioni in agenda</p>
+        <ul class="own-list" id="own-list"></ul>
+      </div>
+      <div class="bk-actions"><button class="btn ghost" type="button" id="own-exit">Esci</button></div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="logo">ADRYA</span>
+    <span>Hair atelier · Milano · Su appuntamento</span>
+    <span>© 2026 ADRYA Milano. P.IVA 14417630960</span>
+    <a href="#salone" id="own-open" class="btn ghost" style="padding:.55rem 1.1rem;font-size:.7rem">Area salone</a>
+  </footer>
+</main>
+
+
+<script>
+/* Numero WhatsApp del salone, solo cifre con prefisso internazionale (es. 393331234567).
+   Finche' resta vuoto, la richiesta viene mostrata a schermo (modalita' demo). */
+var WA_NUMBER = "393202239373";
+var OPEN = {start: 10*60, end: 19*60, step: 30};     /* mar-sab 10:00-19:00, lunedi chiuso */
+var SERVICES = ["Consulenza personalizzata","Taglio donna","Taglio uomo","Piega","Colore di base","Colorazione con henné","Shatush e schiariture","Tonalizzazione","Trattamenti ricostruttivi"];
+
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var waOk = /^\d{8,15}$/.test(WA_NUMBER);
+  var state = {service:null, day:null, time:null};
+  var dayFmt = new Intl.DateTimeFormat("it-IT",{weekday:"short"});
+  var dateFmt = new Intl.DateTimeFormat("it-IT",{day:"numeric",month:"short"});
+  var longFmt = new Intl.DateTimeFormat("it-IT",{weekday:"long",day:"numeric",month:"long"});
+
+  document.querySelectorAll("[data-wa]").forEach(function(a){
+    if (waOk) { a.href = "https://wa.me/" + WA_NUMBER; a.target = "_blank"; a.rel = "noopener"; }
+  });
+
+  function pad(n){ return (n<10?"0":"")+n; }
+  function key(d){ return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate()); }
+  function hhmm(m){ return pad(Math.floor(m/60))+":"+pad(m%60); }
+  /* orari occupati: prenotazioni condivise (db) oppure, senza db, valori dimostrativi */
+  var DB = null, booked = {}, bookedList = [], dbLive = false;
+  function slotId(dayKey, m){ return dayKey + "_" + hhmm(m).replace(":",""); }
+  function busy(dayKey, m){
+    if (dbLive) return !!booked[slotId(dayKey, m)];
+    var h = 0, t = dayKey + hhmm(m);
+    for (var i=0;i<t.length;i++) h = (h*31 + t.charCodeAt(i)) % 1009;
+    return h % 100 < 24;
+  }
+  function chip(label, cls){
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "chip"; b.setAttribute("aria-pressed","false");
+    if (cls) b.innerHTML = label; else b.textContent = label;
+    return b;
+  }
+  function pick(container, btn){
+    container.querySelectorAll(".chip").forEach(function(c){ c.setAttribute("aria-pressed", c===btn ? "true":"false"); });
+  }
+
+  /* 1. servizi */
+  var sv = $("bk-services");
+  SERVICES.forEach(function(name){
+    var b = chip(name);
+    b.addEventListener("click", function(){
+      state.service = name; pick(sv,b);
+      $("bk-s2").hidden = false; update();
+      if (!state.day) $("bk-s2").scrollIntoView({behavior:"smooth",block:"nearest"});
+    });
+    sv.appendChild(b);
+  });
+
+  /* 2. giorni: prossimi 14 giorni lavorativi */
+  var dv = $("bk-days");
+  var now = new Date();
+  var d = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  var count = 0, DAYS = [];
+  while (count < 14) {
+    var wd = d.getDay();
+    var isToday = key(d) === key(now);
+    var lastStart = OPEN.end - OPEN.step;
+    var todayOver = isToday && (now.getHours()*60 + now.getMinutes() + 60 > lastStart);
+    if (wd >= 2 && wd <= 6 && !todayOver) {
+      (function(date){
+        var b = chip('<small>'+dayFmt.format(date).replace(".","")+'</small><b>'+date.getDate()+'</b><small>'+dateFmt.format(date).replace(/^\d+\s/,"").replace(".","")+'</small>', true);
+        b.setAttribute("aria-label", longFmt.format(date));
+        b.addEventListener("click", function(){
+          state.day = date; state.time = null; pick(dv,b);
+          buildSlots(); $("bk-s3").hidden = false; update();
+          $("bk-s3").scrollIntoView({behavior:"smooth",block:"nearest"});
+        });
+        dv.appendChild(b);
+      })(new Date(d));
+      DAYS.push(new Date(d));
+      count++;
+    }
+    d.setDate(d.getDate()+1);
+  }
+
+  /* 3. orari */
+  function buildSlots(){
+    var box = $("bk-slots"); box.innerHTML = "";
+    var k = key(state.day), isToday = k === key(now);
+    for (var m = OPEN.start; m <= OPEN.end - OPEN.step; m += OPEN.step) {
+      (function(m){
+        var b = chip(hhmm(m));
+        var past = isToday && m < now.getHours()*60 + now.getMinutes() + 60;
+        if (past || busy(k,m)) b.disabled = true;
+        b.addEventListener("click", function(){
+          state.time = hhmm(m); pick(box,b);
+          $("bk-s4").hidden = false; update();
+          $("bk-s4").scrollIntoView({behavior:"smooth",block:"nearest"});
+        });
+        box.appendChild(b);
+      })(m);
+    }
+  }
+
+  function summaryText(){
+    return longFmt.format(state.day) + " alle " + state.time;
+  }
+  function update(){
+    if (state.service && state.day && state.time) {
+      $("bk-sum").innerHTML = "<b>" + state.service + "</b><br>" + summaryText();
+    }
+  }
+
+  /* 4. invio */
+  $("bk-s4").addEventListener("submit", function(e){
+    e.preventDefault();
+    var name = $("bk-name").value.trim(), tel = $("bk-tel").value.trim(), note = $("bk-note").value.trim();
+    var err = $("bk-err");
+    if (name.length < 2) { err.textContent = "Inserisci nome e cognome."; $("bk-name").focus(); return; }
+    if (tel.replace(/\D/g,"").length < 8) { err.textContent = "Inserisci un numero di telefono valido."; $("bk-tel").focus(); return; }
+    err.textContent = "";
+    var lines = [
+      "Ciao ADRYA, vorrei richiedere un appuntamento.",
+      "",
+      "Servizio: " + state.service,
+      "Giorno: " + longFmt.format(state.day),
+      "Orario: " + state.time,
+      "Nome: " + name,
+      "Telefono: " + tel
+    ];
+    if (note) lines.push("Note: " + note);
+    var msg = lines.join("\n");
+    saveBooking({date:key(state.day), time:state.time, service:state.service, name:name, tel:tel, note:note, source:"sito"}, function(res){
+      if (res === "taken") {
+        err.textContent = "Questo orario è appena stato occupato: scegline un altro.";
+        state.time = null; buildSlots(); $("bk-s4").hidden = true; $("bk-s3").scrollIntoView({behavior:"smooth",block:"nearest"});
+        return;
+      }
+      showDone(name, msg);
+    });
+  });
+  function showDone(name, msg){
+    $("bk-thanks").textContent = name.split(" ")[0];
+    $("bk-msg").textContent = msg;
+    var wa = $("bk-wa");
+    if (waOk) {
+      wa.href = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg);
+      wa.hidden = false;
+      $("bk-done-text").textContent = "Premi il pulsante per inviare il messaggio su WhatsApp: ti confermiamo l'appuntamento in giornata.";
+    } else {
+      wa.hidden = true;
+      $("bk-done-text").textContent = "Questa è la richiesta che arriverebbe su WhatsApp al salone. In questa versione dimostrativa non viene ancora inviata.";
+    }
+    $("bk-flow").hidden = true; $("bk-done").hidden = false;
+    $("richiedi").scrollIntoView({behavior:"smooth",block:"start"});
+  }
+
+  /* ---- calendario condiviso ---- */
+  function saveBooking(b, cb){
+    if (!dbLive) { cb("local"); return; }
+    var id = slotId(b.date, parseInt(b.time.slice(0,2),10)*60 + parseInt(b.time.slice(3),10));
+    var ref = DB.collection("bookings").doc(id);
+    ref.get().then(function(snap){
+      if (snap.exists) { cb("taken"); return; }
+      b.created = Date.now();
+      return ref.set(b).then(function(){ cb("ok"); });
+    }).catch(function(){ cb("local"); });
+  }
+  function onBookings(snap){
+    booked = {}; bookedList = [];
+    snap.docs.forEach(function(d){ var v = d.data(); if (v) { booked[d.id] = true; bookedList.push({id:d.id, v:v}); } });
+    dbLive = true;
+    if (state.day) { var keep = state.time; buildSlots(); if (keep && booked[slotId(key(state.day), toMin(keep))]) { state.time = null; $("bk-s4").hidden = true; } }
+    renderOwner();
+  }
+  function toMin(t){ return parseInt(t.slice(0,2),10)*60 + parseInt(t.slice(3),10); }
+  if (window.claude && window.claude.use) {
+    window.claude.use("db").then(function(db){
+      if (!db) return;
+      DB = db;
+      db.collection("bookings").onSnapshot(onBookings, function(){ dbLive = false; });
+    }).catch(function(){});
+  }
+
+  /* ---- area salone (PIN dimostrativo, non e' sicurezza vera) ---- */
+  var PIN = "2468", ownIn = false;
+  var sec = $("salone");
+  $("own-open").addEventListener("click", function(){ sec.hidden = false; });
+  if (location.hash === "#salone") sec.hidden = false;
+  $("own-pin-form").addEventListener("submit", function(e){
+    e.preventDefault();
+    if ($("own-pin").value.trim() === PIN) {
+      ownIn = true; $("own-lock").hidden = true; $("own-panel").hidden = false; $("own-pin").value = ""; $("own-pin-err").textContent = ""; fillOwnForm(); renderOwner();
+    } else $("own-pin-err").textContent = "PIN errato.";
+  });
+  $("own-exit").addEventListener("click", function(){ ownIn = false; $("own-panel").hidden = true; $("own-lock").hidden = false; sec.hidden = true; });
+  var ds = $("own-day"), ts = $("own-time"), ss = $("own-service");
+  function opt(sel, v, t){ var o = document.createElement("option"); o.value = v; o.textContent = t; sel.appendChild(o); }
+  function fillOwnForm(){
+    if (ds.options.length) return;
+    DAYS.forEach(function(dt){ opt(ds, key(dt), longFmt.format(dt)); });
+    opt(ss, "", "Servizio (facoltativo)"); SERVICES.forEach(function(n){ opt(ss, n, n); });
+    fillTimes();
+  }
+  function fillTimes(){
+    var cur = ts.value; ts.innerHTML = "";
+    for (var m = OPEN.start; m <= OPEN.end - OPEN.step; m += OPEN.step) opt(ts, hhmm(m), hhmm(m) + (busy(ds.value, m) ? " (occupato)" : ""));
+    if (cur) ts.value = cur;
+  }
+  ds.addEventListener("change", fillTimes);
+  $("own-add").addEventListener("submit", function(e){
+    e.preventDefault();
+    var err = $("own-err"), nm = $("own-name").value.trim();
+    if (!dbLive) { err.textContent = "Il calendario condiviso non è attivo in questa vista."; return; }
+    if (nm.length < 2) { err.textContent = "Inserisci il nome."; return; }
+    var id = ds.value + "_" + ts.value.replace(":","");
+    DB.collection("bookings").doc(id).set({date:ds.value, time:ts.value, service:ss.value, name:nm, tel:"", note:"", source:"telefono", created:Date.now()})
+      .then(function(){ err.textContent = ""; $("own-name").value = ""; })
+      .catch(function(){ err.textContent = "Non è stato possibile salvare."; });
+  });
+  var selId = null;
+  function renderGrid(){
+    var t = $("own-grid"); t.innerHTML = "";
+    var hr = t.insertRow(), c0 = document.createElement("th"); c0.textContent = ""; hr.appendChild(c0);
+    DAYS.forEach(function(dt){ var th = document.createElement("th"); th.textContent = dayFmt.format(dt).replace(".","") + " " + dt.getDate() + " " + dateFmt.format(dt).replace(/^\d+\s/,"").replace(".",""); hr.appendChild(th); });
+    var byId = {}; bookedList.forEach(function(x){ byId[x.id] = x.v; });
+    for (var mm = OPEN.start; mm <= OPEN.end - OPEN.step; mm += OPEN.step) (function(m){
+      var r = t.insertRow(), h = r.insertCell(); h.textContent = hhmm(m);
+      DAYS.forEach(function(dt){
+        var k = key(dt), id = slotId(k, m), v = byId[id], c = r.insertCell();
+        if (v) { c.className = "b" + (v.source === "telefono" ? " t" : "") + (id === selId ? " sel" : ""); c.textContent = v.name || "occupato";
+          c.addEventListener("click", function(){ selId = id; renderGrid(); showDet(id, v); }); }
+        else { c.className = "f"; c.textContent = "·";
+          c.addEventListener("click", function(){ ds.value = k; fillTimes(); ts.value = hhmm(m); selId = null; renderGrid(); $("own-det").textContent = "Libero: " + longFmt.format(dt) + " " + hhmm(m) + ". Scrivi il nome qui sotto e premi “Segna come occupato”."; $("own-name").focus(); });
+        }
+      });
+    })(mm);
+  }
+  function showDet(id, v){
+    var d = $("own-det"); d.innerHTML = "";
+    var sp = document.createElement("span");
+    sp.textContent = v.date + " " + v.time + " · " + (v.name || "") + (v.service ? " · " + v.service : "") + (v.tel ? " · " + v.tel : "") + " · " + (v.source === "telefono" ? "telefono" : "sito") + (v.note ? " · " + v.note : "");
+    var bt = document.createElement("button"); bt.type = "button"; bt.className = "btn ghost"; bt.style.padding = ".5rem 1rem"; bt.textContent = "Libera";
+    bt.addEventListener("click", function(){ DB.collection("bookings").doc(id).delete(); selId = null; d.textContent = "Orario liberato."; });
+    d.appendChild(sp); d.appendChild(bt);
+  }
+  function renderOwner(){
+    if (!ownIn) return;
+    renderGrid();
+    $("own-status").textContent = dbLive ? "Agenda condivisa attiva: ciò che segni qui risulta occupato per tutti i visitatori." : "Agenda condivisa non disponibile in questa vista (si vedono orari dimostrativi).";
+    fillTimes();
+    var ul = $("own-list"); ul.innerHTML = "";
+    var today = key(new Date());
+    var items = bookedList.filter(function(x){ return x.v.date >= today; }).sort(function(a,b){ return a.id < b.id ? -1 : 1; });
+    if (!items.length) { var li = document.createElement("li"); li.textContent = "Nessuna prenotazione in agenda."; ul.appendChild(li); return; }
+    items.forEach(function(x){
+      var li = document.createElement("li"), tx = document.createElement("div");
+      var dp = x.v.date.split("-"), dd = new Date(+dp[0], +dp[1]-1, +dp[2]);
+      tx.innerHTML = "<b></b><small></small>";
+      tx.firstChild.textContent = longFmt.format(dd) + " · " + x.v.time;
+      tx.lastChild.textContent = (x.v.name || "") + (x.v.service ? " · " + x.v.service : "") + (x.v.tel ? " · " + x.v.tel : "") + " · " + (x.v.source === "telefono" ? "telefono" : "sito");
+      var bt = document.createElement("button"); bt.type = "button"; bt.textContent = "Libera";
+      bt.addEventListener("click", function(){ DB.collection("bookings").doc(x.id).delete(); });
+      li.appendChild(tx); li.appendChild(bt); ul.appendChild(li);
+    });
+  }
+
+  $("bk-again").addEventListener("click", function(){
+    state = {service:null, day:null, time:null};
+    document.querySelectorAll("#richiedi .chip").forEach(function(c){ c.setAttribute("aria-pressed","false"); });
+    $("bk-s2").hidden = true; $("bk-s3").hidden = true; $("bk-s4").hidden = true;
+    $("bk-sum").textContent = ""; $("bk-note").value = "";
+    $("bk-done").hidden = true; $("bk-flow").hidden = false;
+  });
+})();
+</script>
+
+<a class="wa" href="#" data-wa aria-label="Scrivici su WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7a11.300 11.300 0 0 1-4.600-4c-.4-.5-1.100-1.500-1.100-2.800 0-1.300.7-1.900.9-2.200.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.500l.8 1.900c.1.200.1.400 0 .6l-.4.600c-.2.200-.3.400-.1.700.2.300.8 1.200 1.700 2 1.100.9 2 1.300 2.300 1.400.3.100.5.100.7-.1l.9-1.100c.2-.3.400-.2.700-.1l1.800.9c.3.100.5.200.5.300.1.200.1.800-.1 1.200Z"/></svg>
+</a>
+
+</body></html>
